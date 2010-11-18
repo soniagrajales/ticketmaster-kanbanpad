@@ -20,7 +20,6 @@ describe "Ticketmaster::Provider::Kanbanpad::Ticket" do
 
   it "should be able to load all tickets" do
     @project.tickets.should be_an_instance_of(Array)
-    #@project.tickets.first.should be_an_instance_of(KanbanpadAPI::Task)
     @project.tickets.first.should be_an_instance_of(@klass)
   end
 end

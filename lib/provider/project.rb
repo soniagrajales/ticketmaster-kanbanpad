@@ -11,16 +11,6 @@ module TicketMaster::Provider
 	    alias_method :tasks, :tickets
       alias_method :task, :ticket
 
-    # este metodo ya existe en kanbanpad-api pero parece que el spec no me lo tomaba entonces me toco adicionarlo aqui
-      def tickets(options = {})
-        KanbanpadAPI::Task.find(:all, :params => options.update(:slug => slug))
-      end
-	
-	    def initialize(*options)
-        super(*options)
-        self.id = self.id.to_i
-      end
-
       # copy from this.copy(that) copies that into this
       def copy(project)
         project.tickets.each do |ticket|
